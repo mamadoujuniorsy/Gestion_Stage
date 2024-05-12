@@ -8,7 +8,7 @@ const Layout = () => {
     <div className='flex flex-row bg-white h-screen w-screen overflow-hidden'>
       <SideBar/>
       <div className='p-4 flex-1'>
-          <Header/>
+          <Header title='Liste des candidatures' placeholder='Liste des candidatures'/>
           <Table/>
       </div>
     </div>

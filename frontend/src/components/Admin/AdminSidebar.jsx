@@ -4,7 +4,7 @@ import { IoPerson } from "react-icons/io5";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import logo from '../../assets/logo.jpg';
 import { Link } from 'react-router-dom';
-const SideBar = () => {
+const AdminSidebar = () => {
   return (
     <div className='bg-neutral-200 w-60 p-3 flex flex-col'>
         <img
@@ -26,4 +26,4 @@ const SideBar = () => {
   )
 }
 
-export default SideBar
+export default AdminSidebar

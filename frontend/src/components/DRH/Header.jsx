@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoPerson } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
-const Header = () => {
+const Header = (props) => {
   return (
     <div>
       <div className='bg-white h-16 px-4 flex justify-between items-center'>
@@ -15,7 +15,7 @@ const Header = () => {
       </div>
       <div className='bg-white h-16 px-4 flex justify-around items-center'>
       <div>
-        <h2>Liste des stagiaires</h2>
+        <h2>{props.title}</h2>
       </div>
       <div className='relative'>
       <CiSearch
@@ -24,7 +24,7 @@ const Header = () => {
       />
         <input
           type='search'
-          placeholder='rechercher stagiaire'
+          placeholder={props.placeholder}
           className='text-sm focus:outline-none h-10 w-[20rem] border border-gray-300 rounded-sm pr-4 pl-11'
         />
       </div>
