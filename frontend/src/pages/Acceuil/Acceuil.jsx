@@ -1,11 +1,11 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import "C:/devweb/Gestion_Stage/frontend/src/assets/acceuil.css";
-import logo from "C:/devweb/Gestion_Stage/frontend/src/assets/logo.jpg";
-import imageacceuil from "C:/devweb/Gestion_Stage/frontend/src/assets/imageacceuil.jpg";
-import imgg1 from "C:/devweb/Gestion_Stage/frontend/src/assets/imgg1.jpeg";
-import imgg2 from "C:/devweb/Gestion_Stage/frontend/src/assets/imgg2.jpeg";
-import imgg3 from "C:/devweb/Gestion_Stage/frontend/src/assets/imgg3.jpeg";
+import "../../assets/acceuil.css";
+import logo from "../../assets/logo.jpg";
+import imageacceuil from "../../assets/imageacceuil.jpg";
+import imgg1 from "../../assets/imgg1.jpeg";
+import imgg2 from "../../assets/imgg2.jpeg";
+import imgg3 from "../../assets/imgg3.jpeg";
 
 
 function PageAcceuil() {
