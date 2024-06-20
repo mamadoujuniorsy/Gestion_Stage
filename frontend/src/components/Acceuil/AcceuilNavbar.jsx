@@ -1,45 +1,54 @@
-import React from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import logo from "C:/devweb/Gestion_Stage/frontend/src/assets/logo.jpg";
-import imageacceuil from "C:/devweb/Gestion_Stage/frontend/src/assets/imageacceuil.jpg";
+import React from 'react';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
-function acceuillNavbar(){
+function Footer() {
     return (
-        <div>
-            <Navbar bg="light" expand="lg" className="navbar-custom">
-                <Navbar.Brand href="#home">
-                    <img
-                        src={logo}
-                        width="70"
-                        height="70"
-                        className="d-inline-block align-top"
-                        alt="Logo"
-                    />
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ml-auto">
-                        <Nav.Link href="#link1">Stage</Nav.Link>
-                        <Nav.Link href="#link2">Inscription</Nav.Link>
-                        <Nav.Link href="#link3">Connexion</Nav.Link>
-                        <NavDropdown title="Menu" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3">Something else</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-            <div className="body-section">
-                <div className="text-section">
-                    <p>Découvrez une nouvelle façon de simplifier la gestion des stages. Notre plateforme innovante offre une solution complète pour les étudiants, les enseignants et les entreprises. Simplifiez vos processus, optimisez votre temps et offrez une expérience de stage exceptionnelle à tous les intervenants. Bienvenue dans l'avenir de la gestion des stages.</p>
-                    <button>Trouvez un Stage !</button>
-                </div>
-                <div className="image-section">
-                    <img src={imageAcceuil} alt="Description de l'image"/>
-                </div>
-            </div>
-        </div>
+        <footer className="bg-dark text-white py-5" >
+            <Container>
+                <Row>
+                    <Col md={6}>
+                        <h4>Newsletter</h4>
+                        <Form>
+                            <Form.Group>
+                                <Form.Control type="email" placeholder="Enter email" />
+                                <Form.Text className="text-muted">
+                                    We'll never share your email with anyone else.
+                                </Form.Text>
+                            </Form.Group>
+                            <Button variant="primary" type="submit">
+                                Subscribe
+                            </Button>
+                        </Form>
+                    </Col>
+                    <Col md={3}>
+                        <h4>Follow Us</h4>
+                        <a href="https://www.facebook.com" className="text-white me-4">
+                            <FontAwesomeIcon icon={faFacebook} size="2x"/>
+                        </a>
+                        <a href="https://www.twitter.com" className="text-white me-4">
+                            <FontAwesomeIcon icon={faTwitter} size="2x"/>
+                        </a>
+                        <a href="https://www.instagram.com" className="text-white">
+                            <FontAwesomeIcon icon={faInstagram} size="2x"/>
+                        </a>
+                    </Col>
+                    <Col md={3}>
+                        <h4>Contact Us</h4>
+                        <p>123, Main Street, Your City</p>
+                        <p>Email: info@example.com</p>
+                        <p>Phone: +1234567890</p>
+                    </Col>
+                </Row>
+                <Row className="border-top pt-3">
+                    <Col>
+                        <p className="text-center">©2023 Your Company. All rights reserved.</p>
+                    </Col>
+                </Row>
+            </Container>
+        </footer>
     );
 }
-export default acceuillNavbar;
+
+export default Footer;
