@@ -1,0 +1,128 @@
+/* styles.css */
+
+.navbar-custom {
+    background-color: #BDE3FF;
+    overflow: visible;
+    position: relative;
+}
+
+.navbar-custom .navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-custom .nav-link {
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #ff0000;
+    transition: color 0.5s ease;
+}
+
+.navbar-custom .dropdown-menu {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    width: 200px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #BDE3FF;
+}
+
+.navbar-custom .dropdown-item {
+    color: #333;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.navbar-custom .dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.body-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #ffffff;
+}
+
+.text-section {
+    flex: 1;
+    padding: 50px; /* Ajoutez plus d'espacement autour du texte */
+    text-align: center;
+    background-color: #ffffff; /* Ajoutez un arrière-plan pour aider à distinguer cette section */
+    border-radius: 10px; /* Ajoutez des coins arrondis pour adoucir l'apparence */
+}
+
+.text-section h2 {
+    font-size: 28px; /* Augmentez la taille de la police pour les titres */
+    color: #333;
+    margin-bottom: 30px; /* Ajoutez plus d'espacement sous les titres */
+}
+
+.text-section p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6; /* Augmentez l'espacement entre les lignes de texte */
+    margin-bottom: 30px;
+}
+
+.text-section button {
+    background-color: #BDE3FF; /* Changez la couleur du bouton pour qu'il se démarque plus */
+    color: #000000; /* Changez la couleur du texte du bouton pour qu'il contraste avec l'arrière-plan */
+    border: none;
+    padding: 10px 20px; /* Augmentez le padding pour un bouton plus grand */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px; /* Augmentez la taille de la police du bouton */
+}
+
+.text-section button:hover {
+    background-color: #79c4f8; /* Assombrissez la couleur de fond lors du survol */
+}
+
+.image-section {
+    flex: 1;
+    padding-left: 50px;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+}
+.second-section, .third-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.element {
+    width: 30%;
+    text-align: center;
+}
+
+.element img {
+    width: 100%;
+    height: auto;
+}
+
+.element h2 {
+    color: #333;
+    font-size: 20px;
+}
+
+.element p {
+    color: #666;
+    font-size: 16px;
+}
+
+.element button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
