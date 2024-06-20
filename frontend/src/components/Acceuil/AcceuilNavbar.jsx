@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import logo from "C:/devweb/Gestion_Stage/frontend/src/assets/logo.jpg";
+import imageacceuil from "C:/devweb/Gestion_Stage/frontend/src/assets/imageacceuil.jpg";
 
 function acceuillNavbar(){
     return (
@@ -35,9 +36,10 @@ function acceuillNavbar(){
                     <button>Trouvez un Stage !</button>
                 </div>
                 <div className="image-section">
-                    <img src="./assets/imageAcceuil.jpg" alt="Description de l'image"/>
+                    <img src={imageAcceuil} alt="Description de l'image"/>
                 </div>
             </div>
         </div>
     );
 }
+export default acceuillNavbar;

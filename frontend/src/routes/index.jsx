@@ -6,6 +6,7 @@ import Detail from "../pages/DRH/Detail";
 import AcceuilAdmin from "../pages/Admin/AcceuilAdmin";
 import Calendar from "../components/Admin/Calendar";
 import Kanban from "../components/Admin/Kanban";
+import PageAcceuil from "../pages/Acceuil/Acceuil.jsx";
 import UserManagement from "../components/Admin/userManagement";
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path:"/dashboard",
         element: <Dashboard/>
+      },
+      {
+        path: "/acceuil",
+        element: <PageAcceuil/>
       },
       {
         path:"/gestion-stagiaire",
