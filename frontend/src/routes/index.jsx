@@ -4,6 +4,9 @@ import Dashboard from "../pages/DRH/Dashboard";
 import GestionStagiaire from "../pages/DRH/GestionStagiaire";
 import Detail from "../pages/DRH/Detail";
 import AcceuilAdmin from "../pages/Admin/AcceuilAdmin";
+import Calendar from "../components/Admin/Calendar";
+import Kanban from "../components/Admin/Kanban";
+import UserManagement from "../components/Admin/userManagement";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +27,18 @@ const router = createBrowserRouter([
       {
         path:"/admin",
         element: <AcceuilAdmin/>
+      },
+      {
+        path:"/admin/calendrier",
+        element: <Calendar/>
+      },
+      {
+        path:"/admin/kanban",
+        element: <Kanban/>
+      },
+      {
+        path:"/admin/gestion-utilisateur",
+        element: <UserManagement/>
       },
     ]
   }
