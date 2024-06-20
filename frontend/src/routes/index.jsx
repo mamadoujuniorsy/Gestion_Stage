@@ -8,6 +8,11 @@ import Calendar from "../components/Admin/Calendar";
 import Kanban from "../components/Admin/Kanban";
 import PageAcceuil from "../pages/Acceuil/Acceuil.jsx";
 import UserManagement from "../components/Admin/userManagement";
+import Stage from './../Etudiant/Stage.jsx'
+import Login from './../Etudiant/Connection.jsx'
+import Consulter from './../Etudiant/Consuler.jsx'
+import Inscription from './../Etudiant/Inscription.jsx'
+import Postuler from './../Etudiant/postuler.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +49,26 @@ const router = createBrowserRouter([
       {
         path:"/admin/gestion-utilisateur",
         element: <UserManagement/>
+      },
+      {
+        path:"/Stage",
+        element: <Stage/>
+      },
+      {
+        path:"/Login",
+        element: <Login/>
+      },
+      {
+        path:"/Consulter",
+        element: <Consulter/>
+      },
+      {
+        path:"/Inscription",
+        element: <Inscription/>
+      },
+      {
+        path:"/Postuler",
+        element: <Postuler/>
       },
     ]
   }
