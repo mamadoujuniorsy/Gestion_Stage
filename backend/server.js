@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
+const candidateRoutes = require('./routes/candidateRoutes')
 require('dotenv').config();
 const cors = require('cors');
 const app = express();
@@ -26,3 +27,5 @@ connectDB().then(() => {
 
 // Utilisez les routes utilisateur
 app.use('/api/users', userRoutes); 
+// Utilisez les routes candidat
+app.use('/api/candidates', candidateRoutes);

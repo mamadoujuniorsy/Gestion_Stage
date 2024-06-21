@@ -1,26 +1,19 @@
 import React from "react";
-<<<<<<< HEAD
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import '../../assets/acceuil.css';
 import logo from "../../assets/logo.jpg";
-=======
 import "../../assets/acceuil.css";
-import logo from "../../assets/logo.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
->>>>>>> d4260b57ef9cd86ef3d14471f8eab73fd03826de
 import imageacceuil from "../../assets/imageacceuil.jpg";
 import imgg1 from "../../assets/imgg1.jpeg";
 import imgg2 from "../../assets/imgg2.jpeg";
 import imgg3 from "../../assets/imgg3.jpeg";
-<<<<<<< HEAD
-=======
 import image4 from "../../assets/image4.png";
 import image5 from "../../assets/image5.png";
 import image6 from "../../assets/image6.png";
-import { Navbar, Nav, NavDropdown, Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Col,  Container,Row,  Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
->>>>>>> d4260b57ef9cd86ef3d14471f8eab73fd03826de
 
 function PageAcceuil() {
     return (
@@ -101,7 +94,7 @@ function PageAcceuil() {
                                 <Form.Group>
                                     <Form.Control type="email" placeholder="Enter email"/>
                                     <Form.Text className="text-muted">
-                                        We'll never share your email with anyone else.
+                                        Well never share your email with anyone else.
                                     </Form.Text>
                                 </Form.Group>
                                 <Button variant="primary" type="submit">
