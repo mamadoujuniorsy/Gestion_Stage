@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import logo from "C:/devweb/Gestion_Stage/frontend/src/assets/logo.jpg";
-import imageacceuil from "C:/devweb/Gestion_Stage/frontend/src/assets/imageacceuil.jpg";
+import logo from "../../assets/logo.jpg";
+import imageAcceuil from "../../assets/imageacceuil.jpg";
 
 function acceuillNavbar(){
     return (

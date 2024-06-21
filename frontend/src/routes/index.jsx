@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         element: <Dashboard/>
       },
       {
-        path: "/acceuil",
+        path: "/",
         element: <PageAcceuil/>
       },
       {

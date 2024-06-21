@@ -1,32 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminSidebar from './AdminSidebar';
-
-const initialUsers = [
-  { id: 1, name: 'John Doe', email: 'john.doe@example.com', role: 'stagiaire' },
-  { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com', role: 'drh' },
-];
+import backendAPI from '../../api'; 
 
 const roles = ['stagiaire', 'drh', 'admin'];
 
 const UserManagement = () => {
-  const [users, setUsers] = useState(initialUsers);
+  const [users, setUsers] = useState([]);
   const [editingUser, setEditingUser] = useState(null);
-  const [newUser, setNewUser] = useState({ name: '', email: '', role: 'stagiaire' });
+  const [newUser, setNewUser] = useState({ name: '', email: '', role: 'stagiaire', password: '' });
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await backendAPI.getUsers();
+      setUsers(response.data);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewUser({ ...newUser, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (editingUser) {
-      setUsers(users.map(user => (user.id === editingUser.id ? { ...newUser, id: editingUser.id } : user)));
-    } else {
-      setUsers([...users, { ...newUser, id: Date.now() }]);
+    try {
+      if (editingUser) {
+        await backendAPI.updateUser(editingUser._id, newUser);
+      } else {
+        const response = await backendAPI.createUser(newUser);
+        console.log('User created:', response.data);
+      }
+      setNewUser({ name: '', email: '', role: 'stagiaire', password: '' });
+      setEditingUser(null);
+      fetchUsers();
+    } catch (error) {
+      console.error('Error saving user:', error.response ? error.response.data : error.message);
     }
-    setNewUser({ name: '', email: '', role: 'stagiaire' });
-    setEditingUser(null);
   };
 
   const handleEdit = (user) => {
@@ -34,8 +49,13 @@ const UserManagement = () => {
     setEditingUser(user);
   };
 
-  const handleDelete = (userId) => {
-    setUsers(users.filter(user => user.id !== userId));
+  const handleDelete = async (userId) => {
+    try {
+      await backendAPI.deleteUser(userId);
+      fetchUsers();
+    } catch (error) {
+      console.error('Error deleting user:', error.response ? error.response.data : error.message);
+    }
   };
 
   return (
@@ -65,6 +85,15 @@ const UserManagement = () => {
               />
             </div>
             <div className="flex space-x-4">
+              <input
+                type="password"
+                name="password"
+                value={newUser.password}
+                onChange={handleInputChange}
+                placeholder="Mot de passe"
+                required
+                className="p-2 border rounded w-full"
+              />
               <select
                 name="role"
                 value={newUser.role}
@@ -97,7 +126,7 @@ const UserManagement = () => {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {users.map(user => (
-                <tr key={user.id}>
+                <tr key={user._id}>
                   <td className="px-6 py-4">{user.name}</td>
                   <td className="px-6 py-4">{user.email}</td>
                   <td className="px-6 py-4 capitalize">{user.role}</td>
@@ -109,7 +138,7 @@ const UserManagement = () => {
                       Modifier
                     </button>
                     <button
-                      onClick={() => handleDelete(user.id)}
+                      onClick={() => handleDelete(user._id)}
                       className="text-red-600 hover:text-red-900"
                     >
                       Supprimer
