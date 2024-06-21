@@ -139,18 +139,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <div className="row">
-          {/* Sidebar */}
-          <div className="col-lg-3">
+          <div className='flex flex-row bg-white h-screen w-screen overflow-hidden'>
+
             <Sidebare />
-          </div>
-          {/* Contenu principal */}
           <div className="col-lg-10">
             <MainContent />
           </div>
-        </div>
-      </div>
+          </div>
+
     );
   }
 }

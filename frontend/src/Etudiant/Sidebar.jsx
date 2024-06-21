@@ -1,57 +1,29 @@
-import consulter from './images/Consulter.png' 
-import logo from './images/stageSUP.png' 
-import stage from './images/Poster_stage.png' 
-import profil from './images/Profil.png' 
-import Deconnection from './images/Deconnection.png' 
-import details from './images/Details.png'
-import header from './images/Header.png'
-import alarm from './images/Alarm.png'
-import caution from './images/icon-park_caution.svg'
-import calendrier from './images/icon-park_calendar.svg'
-
-import {Link} from 'react-router-dom'
-import React from 'react';
-import './css/App.css'
-import './css/bootstrap.css'
-class Sidebar extends React.Component {
-  render() {
-    return (
-      <div className="sidebar" style={{  }}>
-        <img src={logo} alt="" />
-        <br />
-        <Link to="/Stage" className="active cursor-pointer"><img src={stage} alt="" /></Link>
-        <Link to="/Consulter"><img src={consulter} alt="" /></Link>
-        <Link to="/details"><img src={profil} alt="" /></Link>
-        <a href="#" className="logout"><img src={Deconnection} alt="" /></a>
-      </div>
-    );
-  }
-}
-
-
-class App extends React.Component {
-  componentDidMount() {
-    // Ajoute la classe "active" au lien cliqué dans le sidebar
-    document.querySelectorAll('.sidebar a').forEach(item => {
-      item.addEventListener('click', () => {
-        document.querySelectorAll('.sidebar a').forEach(el => el.classList.remove('active'));
-        item.classList.add('active');
-      });
-    });
-  }
-
-  render() {
-    return (
-      <div className="container-fluid">
-        <div className="row">
-          {/* Sidebar */}
-          <div className="col-lg-3">
-            <Sidebar />
-          </div>
+import React from 'react'
+import { RxDashboard } from "react-icons/rx";
+import { IoPerson } from "react-icons/io5";
+import { RiLogoutCircleRLine } from "react-icons/ri";
+import logo from '../assets/logo.jpg';
+import { Link } from 'react-router-dom';
+const SideBar = () => {
+  return (
+    <div className='bg-neutral-200 w-60 p-3 flex flex-col'>
+        <img
+          src={logo}
+        />
+        <div className='flex items-center gap-2 px-3 py-2 hover:bg-blue-400'>
+        <RxDashboard />
+          <Link to='/Stage'>Postuler Stage</Link>
         </div>
-      </div>
-    );
-  }
+        <div className='flex items-center gap-2 px-3 py-2 hover:bg-blue-400'>
+          <IoPerson/>
+          <Link to='/Consulter'>Consulter Stage</Link>
+        </div>
+        <div className='flex items-center gap-2 px-3 py-2 hover:bg-blue-400'>
+          <RiLogoutCircleRLine/>
+          <Link to='#' className='text-red-500'>Déconnexion</Link>
+        </div>
+      </div>      
+  )
 }
 
-export default App;
+export default SideBar

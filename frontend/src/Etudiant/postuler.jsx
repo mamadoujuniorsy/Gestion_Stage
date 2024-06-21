@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from './Sidebar.jsx';
+import Sidebare from './Sidebar.jsx';
 import Logiciel from './images/genie_logiciel_utm.png';
 import './css/bootstrap.css';
 import './css/Postuler.css';
@@ -10,9 +10,9 @@ class MainContent extends React.Component {
     const { stageTitle, stageDescription, prerequisites, type, duration, submissionDate, startDate, endDate } = this.props;
 
     return (
-      <div>
-      <Sidebar />
-      <section className="bg-light ml-[220px] col-lg-12 mt-[-60px]">
+      <div className='flex flex-row bg-white h-screen w-screen overflow-hidden h-100'>
+            <Sidebare />
+      <section className="bg-light col-lg-10 ">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 mb-4 mb-sm-5">
