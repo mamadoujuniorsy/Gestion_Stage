@@ -1,9 +1,6 @@
-/* styles.css */
-
+/* Navbar */
 .navbar-custom {
     background-color: #BDE3FF;
-    overflow: visible;
-    position: relative;
 }
 
 .navbar-custom .navbar-nav {
@@ -41,6 +38,7 @@
     color: #333;
 }
 
+/* Body Section */
 .body-section {
     display: flex;
     justify-content: space-between;
@@ -51,37 +49,31 @@
 
 .text-section {
     flex: 1;
-    padding: 50px; /* Ajoutez plus d'espacement autour du texte */
+    padding: 50px;
     text-align: center;
-    background-color: #ffffff; /* Ajoutez un arrière-plan pour aider à distinguer cette section */
-    border-radius: 10px; /* Ajoutez des coins arrondis pour adoucir l'apparence */
-}
-
-.text-section h2 {
-    font-size: 28px; /* Augmentez la taille de la police pour les titres */
-    color: #333;
-    margin-bottom: 30px; /* Ajoutez plus d'espacement sous les titres */
+    background-color: #ffffff;
+    border-radius: 10px;
 }
 
 .text-section p {
     font-size: 18px;
     color: #666;
-    line-height: 1.6; /* Augmentez l'espacement entre les lignes de texte */
+    line-height: 1.6;
     margin-bottom: 30px;
 }
 
 .text-section button {
-    background-color: #BDE3FF; /* Changez la couleur du bouton pour qu'il se démarque plus */
-    color: #000000; /* Changez la couleur du texte du bouton pour qu'il contraste avec l'arrière-plan */
+    background-color: #BDE3FF;
+    color: #000000;
     border: none;
-    padding: 10px 20px; /* Augmentez le padding pour un bouton plus grand */
+    padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-size: 18px; /* Augmentez la taille de la police du bouton */
+    font-size: 18px;
 }
 
 .text-section button:hover {
-    background-color: #79c4f8; /* Assombrissez la couleur de fond lors du survol */
+    background-color: #79c4f8;
 }
 
 .image-section {
@@ -93,19 +85,25 @@
     width: 100%;
     height: auto;
 }
+
+/* Second and Third Section */
 .second-section, .third-section {
     display: flex;
     justify-content: space-between;
+    margin: 50px 0;
 }
 
 .element {
-    width: 30%;
+    flex: 1;
+    margin: 0 10px;
     text-align: center;
 }
 
 .element img {
     width: 100%;
     height: auto;
+    max-width: 300px; /* Fix the image size */
+    margin-bottom: 10px;
 }
 
 .element h2 {
@@ -119,10 +117,30 @@
 }
 
 .element button {
-    background-color: #007BFF;
-    color: #fff;
+    background-color:  #BDE3FF;
+    color: #000000;
     border: none;
     padding: 10px 20px;
     margin-top: 10px;
     cursor: pointer;
+}
+.element button:hover {
+    background-color: #79c4f8;
+}
+.second-section .element img, .third-section .element img {
+    width: 70%; /* Ajustez la taille de l'image */
+    margin-left: 19%; /* Ajustez la position par rapport à la gauche */
+}
+.second-section .element h2 {
+    font-size: 20px; /* Ajustez la taille du texte */
+    text-align: left; /* Ajustez la position du texte */
+    font-weight: bold; /* Rend le texte en gras */
+    color: #9ed4fb; /* Change la couleur du texte */
+    margin-left: 10%; /* Ajustez la position par rapport à la gauche */
+}
+.second-section .element p {
+    font-size: 16px; /* Ajustez la taille du texte */
+    text-align: left; /* Ajustez la position du texte */
+    color: #302f2f; /* Change la couleur du texte */
+    margin-left: 10%; /* Ajustez la position par rapport à la gauche */
 }
