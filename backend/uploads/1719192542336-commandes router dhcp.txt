@@ -1,0 +1,196 @@
+enable
+conf t
+
+vlan 10
+name ADMIN
+int vlan 10
+ip add 10.39.10.0 255.255.255.0
+ip default-gateway 10.39.10.5
+no sh 
+exit
+
+vlan 20
+name VISITEUR
+int vlan 20
+ip add 10.39.20.0 255.255.255.0
+ip default-gateway 10.39.20.5
+no sh
+exit
+
+vlan 30
+name JURID
+int vlan 30 
+ip add 10.39.30.0 255.255.255.0
+ip default-gateway 10.39.30.5
+no sh 
+exit
+
+vlan 40 
+name INFO 
+int vlan 40
+ip add 10.39.40.0 255.255.255.0
+ip default-gateway 10.39.40.5
+no sh
+exit
+
+vlan 50
+name TECHN 
+int vlan 50
+ip add 10.39.50.0 255.255.255.0
+ip default-gateway 10.39.50.5
+no sh 
+exit
+
+vlan 60 
+name COMPT 
+int vlan 60
+ip add 10.39.60.0 255.255.255.0
+ip default-gateway 10.39.60.5
+no sh
+exit
+
+
+
+
+interface range fastEthernet0/1-4
+switch port mode access
+switchport access vlan 10 
+no sh
+exit
+
+
+interface range fastEthernet0/5-8
+switch port mode access
+switchport access vlan 20 
+no sh
+exit
+
+
+interface range fastEthernet0/9-13
+switch port mode access
+switchport access vlan 30 
+no sh
+exit
+
+
+interface range fastEthernet0/14-17
+switch port mode access
+switchport access vlan 40 
+no sh
+exit
+
+
+interface range fastEthernet0/18-20
+switch port mode access
+switchport access vlan 50
+no sh
+exit
+
+
+
+interface range fastEthernet0/21-23
+switch port mode access
+switchport access vlan 60 
+no sh
+exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+enable
+config t
+hostname serveur-dhcp-nat
+int fa0/0
+ip address 192.168.1.1 255.255.255.0
+no sh
+exit
+service dhcp
+ip dhcp pool LANDST
+network 192.168.1.0 255.255.255.0
+lease 2
+default-router 192.168.1.1
+exit
+int fa0/1
+ip address 41.83.163.120 255.254.0.0
+no sh
+exit
+do sh ip dhcp server statistics

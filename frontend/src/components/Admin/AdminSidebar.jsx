@@ -29,6 +29,10 @@ const AdminSidebar = () => {
           <Link to='/admin/gestion-utilisateur'>gestion utilisateurs</Link>
         </div>
         <div className='flex items-center gap-2 px-3 py-2 hover:bg-blue-400'>
+          <IoPerson/>
+          <Link to='/admin/gestion-stage'>gestion stages</Link>
+        </div>
+        <div className='flex items-center gap-2 px-3 py-2 hover:bg-blue-400'>
           <RiLogoutCircleRLine/>
           <Link to='#' className='text-red-500'>Déconnexion</Link>
         </div>

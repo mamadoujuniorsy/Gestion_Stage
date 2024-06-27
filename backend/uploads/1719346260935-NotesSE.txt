@@ -1,0 +1,44 @@
+garantir la répartition équitable des ressources
+
+-------ROUND ROBIN--------
+PCB : structure de données qui permet de sauvegarder les informations, le contexte de processus de manière structurée.
+ROUND ROBIN = FIFO + PREEMPTION
+Si le quantum est petit, le systeme va dépasser beaucoup d'energies 
+
+-------ORDONNANCEMENT A MULTI NIVEAU--------
+Cette approche divise la file d'attente des processus en plusieurs niveaux ou classes, chacun étant associé à une priorité spécifique. Chaque niveau peut utiliser un algorithme d'ordonnancement différent, adapté aux caractéristiques des processus qui s'y trouvent.
+
+Favoriser les processus faible afin de garantir un temps d'attente faible au processus
+File d'attente => niveau / Chaque niveau est associé à un
+Plus le numéro de priorité est faible, plus cette file est prioritaire
+ROUND ROBIN est utilisé par défaut
+Si le processus expire le quantum, il sera relégué en niveau moins prioritaire le plus proche.
+Si le processus n'expire pas le quantum et est en attente d'E/S, il va le remettre sur le même niveau.
+Plus le processus s'enfonce à des niveaux moins prioritaires, plus le processus est dit gourmand.
+La durée du quantum diffère selon les niveaux; les niveaux moins prioritaires auront plus de quantum de temps que les niveaux prioritaires.
+Par défaut, les processus qui viennent d'arriver sont placés dans le niveau le plus prioritaire. 
+La limite de processus (longueur de la file d'attente) sur une file d'attente dépend de la RAM.
+La priorité est dynamique.
+Il n'y a pas la possibilité de remonter de niveau plus prioritaire.
+Chaque file est gérée selon FIFO
+il y'a réquisition lorsqu'un processus plus prioritaire arrive.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

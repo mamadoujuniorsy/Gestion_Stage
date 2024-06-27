@@ -23,6 +23,19 @@ const candidateSchema = new mongoose.Schema({
     enum: ['En attente', 'Accepté', 'Rejeté'],
     default: 'En attente',
   },
+  stage: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Stage',
+    required: true,
+  },
+  cv: {
+    type: String,
+    required: true,
+  },
+  coverLetter: {
+    type: String,
+    required: true,
+  }
 });
 
 const Candidate = mongoose.model('Candidate', candidateSchema);

@@ -13,6 +13,8 @@ import Login from './../Etudiant/Connection.jsx'
 import Consulter from './../Etudiant/Consuler.jsx'
 import Inscription from './../Etudiant/Inscription.jsx'
 import Postuler from './../Etudiant/postuler.jsx'
+import StageManagement from "../components/Admin/stageManagement.jsx";
+import Layout from "../components/DRH/Layout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,11 +29,15 @@ const router = createBrowserRouter([
         element: <PageAcceuil/>
       },
       {
+        path: "/drh",
+        element: <Layout/>
+      },
+      {
         path:"/gestion-stagiaire",
         element: <GestionStagiaire/>
       },
       {
-        path:"/details",
+        path:"/details/:id",
         element: <Detail/>
       },
       {
@@ -49,6 +55,10 @@ const router = createBrowserRouter([
       {
         path:"/admin/gestion-utilisateur",
         element: <UserManagement/>
+      },
+      {
+        path:"/admin/gestion-stage",
+        element: <StageManagement/>
       },
       {
         path:"/Stage",

@@ -1,0 +1,40 @@
+Configuration du routage statique sur les routeurs :
+Sur le routeur "RUFISQUE" :
+
+
+enable
+configure terminal
+ip route 0.0.0.0 0.0.0.0 (adresse de passerelle par défaut)
+ip route (réseau de destination) (masque de sous-réseau) (adresse de passerelle)
+
+Configuration des adresses IP et de la passerelle sur les périphériques :
+Sur chaque périphérique, configurez l'adresse IP et la passerelle comme suit :
+
+enable
+configure terminal
+interface VlanX (X est le numéro du VLAN)
+ip address (adresse IP) (masque de sous-réseau)
+exit
+ip default-gateway (adresse IP de la passerelle) 
+
+Configuration de l'interconnexion des VLANs sur le routeur "RUFISQUE" :
+"encapsulation dot1Q 30" est utilisé pour définir que 
+l'interface GigabitEthernet0/0.30 appartient au VLAN 30. 
+Cela signifie que le trafic traversant cette interface sera marqué avec 
+l'identifiant VLAN 30, permettant ainsi au commutateur ou au routeur de séparer et 
+de traiter correctement le trafic appartenant à ce VLAN spécifique.
+
+enable
+configure terminal
+interface GigabitEthernet0/0
+no shutdown
+interface GigabitEthernet0/0.10
+encapsulation dot1Q 10
+ip address 10.50.232.1 255.255.255.0
+interface GigabitEthernet0/0.20
+encapsulation dot1Q 20
+ip address 10.50.233.1 255.255.255.0
+interface GigabitEthernet0/0.30
+encapsulation dot1Q 30
+ip address 10.50.234.1 255.255.255.0
+exit
