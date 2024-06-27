@@ -109,5 +109,27 @@ section {
     font-weight: bold; /* Texte en gras */
   }
 
+  /* CSS pour rendre la barre latérale fixe */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px; /* ajustez cette valeur en fonction de la largeur souhaitée */
+    background-color: #f8f9fa; /* ajustez la couleur de fond */
+    z-index: 1000; /* pour s'assurer qu'elle est au-dessus d'autres éléments */
+  }
+  
+  /* Ajuster le contenu principal pour qu'il prenne en compte la largeur de la barre latérale */
+  .main-content {
+    margin-left: 250px; /* la même valeur que la largeur de la barre latérale */
+    padding: 20px;
+  }
+  
+  /* Assurez-vous que le conteneur principal permet le défilement */
+  .main-content-container {
+    height: 100vh;
+    overflow-y: auto;
+  }
   
   

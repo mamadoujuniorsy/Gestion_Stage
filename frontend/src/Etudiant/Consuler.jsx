@@ -10,7 +10,7 @@ const Table = () => {
   const [selectedStage, setSelectedStage] = useState(null);
   const [showDeleteConfirmationModal, setShowDeleteConfirmationModal] = useState(false);
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
-  const [showStudentInfoModal, setShowStudentInfoModal] = useState(false); // Nouvel état pour le modal d'information sur l'étudiant
+  const [showStudentInfoModal, setShowStudentInfoModal] = useState(false);
 
   const toggleStageInfoModal = (stage) => {
     setSelectedStage(stage);
@@ -27,14 +27,22 @@ const Table = () => {
   };
 
   return (
-    <div>
-      <Sidebare />
-      <div className="flex flex-col mt-[50px] ml-[300px]">
-        <h1 className="text-2xl font-bold mb-10">Bienvenu(e), Mamadou</h1> {/* Ajout de l'événement onClick pour ouvrir le modal d'information sur l'étudiant */}
-        <div className='mt-[-70px] ml-[800px]' onClick={toggleStudentInfoModal}>
-          <img src={person} alt="" /> <h1 className='text-2xl font-bold mt-[-30px] ml-[40px]'>Mamadou Sy</h1>
-          <small className='ml-[40px]'>Etudiant</small>
+    <div className='flex flex-row bg-white h-screen w-screen overflow-hidden'>
+      <Sidebare /> {/* Ajout d'une marge à droite pour le Sidebare */}
+      <div className="flex flex-col col-lg-10"> 
+        <center>
+        <div class="row mt-[30px]">
+          <div class="col-lg-4">
+        <h1 className="text-2xl font-bold mb-10">Bienvenu(e), Mamadou</h1></div>
+        <div className='flex items-center cursor-pointer' class="col-lg-8" onClick={toggleStudentInfoModal}> 
+        <div className="ml-4 flex items-center flex items-center cursor-pointer"> {/* Ajout de la classe flex et items-center */}
+          <img src={person} alt="" />
+            <h1 className='text-2xl font-bold'>Mamadou Sy</h1>
         </div>
+        <small>Etudiant</small>
+        </div>
+        </div>
+        </center>
         <div className="overflow-x-auto mt-[30px]">
           <div className="inline-block w-full max-w-[1000px] py-2 sm:px-6 lg:px-8">
             <div className="overflow-hidden">
@@ -53,9 +61,9 @@ const Table = () => {
                   {[1, 2, 3, 4, 5, 6].map((stage, index) => (
                     <tr key={index} className="border-b dark:border-neutral-500">
                       <td className="whitespace-nowrap px-6 py-4">{stage}</td>
-                      <td className="whitespace-nowrap px-6 py-4" class="badge badge-danger mt-3">10 mai 2024</td>
+                      <td className=" badge badge-danger mt-3">10 mai 2024</td>
                       <td className="whitespace-nowrap px-6 py-4">SONATEL</td>
-                      <td className="whitespace-nowrap px-6 py-4" class="badge badge-success">Accepté</td>
+                      <td class="badge badge-success">Accepté</td>
                       <td className="whitespace-nowrap px-6 py-4">
                         <HiPencil color='blue' fontSize={25} onClick={() => toggleStageInfoModal(stage)} />
                       </td>
@@ -118,7 +126,7 @@ const Table = () => {
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div className="sm:flex sm:items-start">
                   <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                  <img src={logo} alt="" />
+                    <img src={logo} alt="" />
                   </div>
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">Delete Confirmation</h3>
@@ -140,7 +148,7 @@ const Table = () => {
           </div>
         </div>
       )}
-      {showStudentInfoModal && ( // Affichage du modal d'information sur l'étudiant
+      {showStudentInfoModal && (
         <div className="fixed z-10 inset-0 overflow-y-auto">
           <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div className="fixed inset-0 transition-opacity" aria-hidden="true">
@@ -184,10 +192,10 @@ const Table = () => {
                 </div>
               </div>
               <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button onClick={() => setShowStudentInfoModal(false)} type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
+                <button onClick={() => setShowStudentInfoModal(false)} type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
                   Sauvegarder
                 </button>
-                <button onClick={() => setShowStudentInfoModal(false)} type="button"  class="badge badge-danger">
+                <button onClick={() => setShowStudentInfoModal(false)} type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                   Fermer
                 </button>
               </div>
