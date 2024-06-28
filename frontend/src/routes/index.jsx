@@ -8,18 +8,15 @@ import Calendar from "../components/Admin/Calendar";
 import Kanban from "../components/Admin/Kanban";
 import PageAcceuil from "../pages/Acceuil/Acceuil.jsx";
 import UserManagement from "../components/Admin/userManagement";
-import Stage from './../Etudiant/Stage.jsx'
-import Login from './../Etudiant/Connection.jsx'
-import Consulter from './../Etudiant/Consuler.jsx'
-import Inscription from './../Etudiant/Inscription.jsx'
-import Postuler from './../Etudiant/postuler.jsx'
+import StageManagement from "../components/Admin/stageManagement.jsx";
+import Layout from "../components/DRH/Layout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
       {
-        path:"/dashboard",
+        path:"/drh/dashboard",
         element: <Dashboard/>
       },
       {
@@ -27,11 +24,15 @@ const router = createBrowserRouter([
         element: <PageAcceuil/>
       },
       {
+        path: "/drh",
+        element: <Layout/>
+      },
+      {
         path:"/gestion-stagiaire",
         element: <GestionStagiaire/>
       },
       {
-        path:"/details",
+        path:"/details/:id",
         element: <Detail/>
       },
       {
@@ -51,25 +52,10 @@ const router = createBrowserRouter([
         element: <UserManagement/>
       },
       {
-        path:"/Stage",
-        element: <Stage/>
+        path:"/admin/gestion-stage",
+        element: <StageManagement/>
       },
-      {
-        path:"/Login",
-        element: <Login/>
-      },
-      {
-        path:"/Consulter",
-        element: <Consulter/>
-      },
-      {
-        path:"/Inscription",
-        element: <Inscription/>
-      },
-      {
-        path:"/Postuler",
-        element: <Postuler/>
-      },
+    
     ]
   }
 ]

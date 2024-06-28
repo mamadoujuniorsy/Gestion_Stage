@@ -10,7 +10,7 @@ const Header = (props) => {
       </div>
       <div className='flex items-center'>
         <IoPerson/>
-        <h2>Mamadou</h2>
+        <h2>DRH</h2>
       </div>
       </div>
       <div className='bg-white h-16 px-4 flex justify-around items-center'>

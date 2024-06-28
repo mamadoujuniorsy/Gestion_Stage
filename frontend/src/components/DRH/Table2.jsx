@@ -27,7 +27,9 @@ const Table2 = () => {
                     </Link>
                   </td>
                   <td className="whitespace-nowrap px-6 py-4">
-                    <MdDelete color='red'fontSize={25} className='cursor-pointer'/>
+                    <Link>
+                      <MdDelete color='red'fontSize={25} className='cursor-pointer'/>
+                    </Link>
                   </td>
                 </tr>
               </tbody>

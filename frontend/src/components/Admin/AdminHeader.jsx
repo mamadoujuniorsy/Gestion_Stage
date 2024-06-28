@@ -23,11 +23,11 @@ const AdminHeader = () => {
           alt='drapeau'
           width={30}
           height={30}
-          className='mr-4'
+          className='mr-4 animate-bounce'
         />
         <IoMdSunny
           fontSize={25}
-          className='mr-4'
+          className='mr-4 animate-pulse text-red-400'
         />
         <IoPerson
           fontSize={25}

@@ -12,7 +12,7 @@ const SideBar = () => {
         />
         <div className='flex items-center gap-2 px-3 py-2 hover:bg-blue-400'>
         <RxDashboard />
-          <Link to='/dashboard'>Tableau de bord</Link>
+          <Link to='/drh/dashboard'>Tableau de bord</Link>
         </div>
         <div className='flex items-center gap-2 px-3 py-2 hover:bg-blue-400'>
           <IoPerson/>

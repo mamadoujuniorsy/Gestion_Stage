@@ -1,0 +1,7 @@
+enable
+config t
+hostname FAI
+int fa0/0
+ip address 41.83.163.121 255.254.0.0
+no sh
+exit

@@ -1,0 +1,39 @@
+**********************************FAI (ISP)********************************
+conf t
+int fa0/1
+ip address dhcp
+no sh
+do wr
+end
+sh ip int brief (à partir d'ici le router est sur internet avec le cloud NAT)
+conf t
+int fa0/1
+ip nat outside
+ip address dhcp
+int fa0/0
+ip nat inside 
+ip address 41.83.163.121 255.254.0.0
+no sh
+do wr
+exit
+ip nat inside source list 1 interface fastethernet 0/1 overload
+access-list 1 permit any
+ip domain-lookup
+ip name-server 8.8.8.8
+end
+(ici il faut se rendre sur le deuxième router)
+
+*******************************SERVEUR-DHCP-NAT****************************
+conf t
+int fa0/1
+ip nat outside
+ip address 41.83.163.120 255.254.0.0
+no sh
+int fa0/0
+ip nat inside 
+ip address 192.168.1.1 255.255.255.0
+exit
+ip route 0.0.0.0 0.0.0.0 41.83.163.121
+ip domain-lookup
+ip name-server 8.8.8.8
+end
