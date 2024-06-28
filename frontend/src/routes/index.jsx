@@ -11,6 +11,7 @@ import UserManagement from "../components/Admin/userManagement";
 import StageManagement from "../components/Admin/stageManagement.jsx";
 import Layout from "../components/DRH/Layout.jsx";
 import LoginPage from "../Etudiant/Connection.jsx";
+import RegistrationPage from "../Etudiant/Inscription.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element: <LoginPage/>
+      },
+      {
+        path:"/inscription",
+        element: <RegistrationPage />
       },
       {
         path:"/admin/gestion-utilisateur",

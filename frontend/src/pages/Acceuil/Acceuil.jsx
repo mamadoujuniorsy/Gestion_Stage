@@ -112,7 +112,7 @@ function PageAcceuil() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link href="#link1">Stage</Nav.Link>
-            <Nav.Link href="#">Inscription</Nav.Link>
+            <Nav.Link href="/inscription">Inscription</Nav.Link>
             <Nav.Link href="/login">Connexion</Nav.Link>
             <NavDropdown bg="blue" title="Menu" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/1">Action</NavDropdown.Item>
