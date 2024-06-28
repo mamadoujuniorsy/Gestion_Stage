@@ -4,9 +4,11 @@ import login from './images/banner_login.png';
 import emailIcon from './images/Alternate email.svg';
 import lockIcon from './images/Lock.svg';
 import nameIcon from './images/wpf_name.svg';
-import phoneIcon from './images/bi_phone.svg'; // Import de l'image phone
+import phoneIcon from './images/bi_phone.svg';
 import personIcon from './images/person_circle_icon_159926.svg';
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import backendAPI from '../api/index.js';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +22,8 @@ const RegistrationPage = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,15 +41,28 @@ const RegistrationPage = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
+    if (formData.password !== formData.confirmPassword) {
+      setError('Les mots de passe ne correspondent pas');
+      return;
+    }
+    const userData = {
+      name: `${formData.firstName} ${formData.lastName}`,
+      email: formData.email,
+      role: 'stagiaire',
+      password: formData.password,
+    };
+    try {
+      await backendAPI.createUser(userData);
+      navigate('/login');
+    } catch (err) {
+      setError('Erreur lors de la création du compte. Veuillez réessayer.');
+    }
   };
 
   return (
       <div className="flex flex-col lg:flex-row h-screen">
-        {/* Partie du formulaire */}
         <div className="flex-1 bg-white flex justify-center items-center lg:ml-[-100px]">
           <div className="max-w-md p-8">
             <div className="mb-3 lg:flex lg:items-center">
@@ -53,6 +70,7 @@ const RegistrationPage = () => {
               <h1 className="text-4xl font-bold mb-10 mt-2 lg:mt-0">Stage SUP</h1>
             </div>
             <h1 className="text-5xl font-bold mb-4">Inscription</h1>
+            {error && <p className="text-red-500">{error}</p>}
             <form onSubmit={handleSubmit}>
               <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 relative">
@@ -81,16 +99,17 @@ const RegistrationPage = () => {
               </div>
               <div className="mb-4 relative">
                 <img src={lockIcon} className="absolute left-3 top-1/2 transform -translate-y-1/2" alt="Lock Icon" />
-                <input type={showConfirmPassword ? "text" : "password"} id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} className="pl-10 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-9 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" placeholder="Confirmer Mot de Passe" />
+                <input type={showConfirmPassword ? "text" : "password"} id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} className="pl-10 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-9 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" placeholder="Confirmez le Mot de Passe" />
                 {showConfirmPassword ? <FiEyeOff className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={toggleConfirmPasswordVisibility} /> : <FiEye className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={toggleConfirmPasswordVisibility} />}
               </div>
-              <button type="submit" className="w-full bg-blue-500 text-white font-semibold py-2 rounded-md">S'inscrire</button>
+              <div className="flex items-center justify-between">
+                <button type="submit" className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">S'inscrire</button>
+              </div>
             </form>
           </div>
         </div>
-        {/* Partie de couleur grise */}
-        <div className="flex-1 bg-gray-200 lg:flex justify-center items-center">
-          <img src={login} alt="Banner" className="hidden lg:block" />
+        <div className="hidden lg:flex lg:items-center lg:justify-center lg:w-1/2">
+          <img src={login} alt="Login Banner" className="h-auto w-full object-cover" />
         </div>
       </div>
   );
