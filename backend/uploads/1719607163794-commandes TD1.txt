@@ -1,0 +1,68 @@
+Switch>enable
+Switch#configure terminal 
+Switch(config)#hostname S1
+S1(config)#vlan 10
+S1(config-vlan)#name vlan10
+S1(config-vlan)#exit
+S1(config)#vlan 20
+S1(config-vlan)#name vlan20
+S1(config-vlan)#exit
+S1(config)#vlan 30
+S1(config-vlan)#name vlan30
+S1(config-vlan)#exit
+S1(config)#vlan 50
+S1(config-vlan)#name vlan50
+S1(config-vlan)#exit
+S1(config)#interface range fastEthernet 0/1-5
+S1(config-if-range)#shutdown
+S1(config-if-range)#exit
+S1(config)#interface range fastEthernet 0/6-10
+S1(config-if-range)#switchport mode access 
+S1(config-if-range)#switchport access vlan 30
+S1(config-if-range)#no shutdown
+S1(config-if-range)#exit
+S1(config)#interface range fastEthernet 0/11-17
+S1(config-if-range)#switchport mode access 
+S1(config-if-range)#switchport access vlan 10
+S1(config-if-range)#no shutdown
+S1(config-if-range)#exit
+S1(config)#interface range fastEthernet 0/18-24
+S1(config-if-range)#switchport mode access 
+S1(config-if-range)#switchport access vlan 20
+S1(config-if-range)#no shutdown
+S1(config-if-range)#exit
+S1(config)#interface fastEthernet 0/2
+S1(config-if)#switchport mode access 
+S1(config-if)#switchport access vlan 50
+S1(config-if)#no shutdown
+S1(config-if)#exit
+S1(config)#interface gigaEthernet 0/1
+S1(config-if)#switchport mode trunk
+S1(config-if)#switchport trunk allowed vlan 10,20,30,50
+S1(config-if)#no shutdown
+S1(config-if)#do wr
+S1(config-if)#exit
+-----------------------------------------------------------------------------
+router>enable
+router#configure terminal
+router(config)#interface gigaEthernet 0/1.10
+router(config-subif)#encapsulation dot1Q 10
+router(config-subif)#ip address 127.17.10.1 255.255.255.0
+router(config-subif)#no shutdown
+router(config-subif)#exit
+router(config)#interface gigaEthernet 0/1.20
+router(config-subif)#encapsulation dot1Q 20
+router(config-subif)#ip address 127.17.20.1 255.255.255.0
+router(config-subif)#no shutdown
+router(config-subif)#exit
+router(config)#interface gigaEthernet 0/1.30
+router(config-subif)#encapsulation dot1Q 30
+router(config-subif)#ip address 127.17.30.1 255.255.255.0
+router(config-subif)#no shutdown
+router(config-subif)#exit
+router(config)#interface gigaEthernet 0/1.50
+router(config-subif)#encapsulation dot1Q 50
+router(config-subif)#ip address 127.17.50.1 255.255.255.0
+router(config-subif)#no shutdown
+router(config-subif)#do wr
+router(config-subif)#exit

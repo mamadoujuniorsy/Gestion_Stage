@@ -10,6 +10,7 @@ import PageAcceuil from "../pages/Acceuil/Acceuil.jsx";
 import UserManagement from "../components/Admin/userManagement";
 import StageManagement from "../components/Admin/stageManagement.jsx";
 import Layout from "../components/DRH/Layout.jsx";
+import LoginPage from "../Etudiant/Connection.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path:"/admin/kanban",
         element: <Kanban/>
+      },
+      {
+        path:"/login",
+        element: <LoginPage/>
       },
       {
         path:"/admin/gestion-utilisateur",

@@ -1,0 +1,1 @@
+.pdf,.txt,.dot filter=lfs diff=lfs merge=lfs -text
