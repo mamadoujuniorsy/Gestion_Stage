@@ -12,6 +12,10 @@ import StageManagement from "../components/Admin/stageManagement.jsx";
 import Layout from "../components/DRH/Layout.jsx";
 import LoginPage from "../Etudiant/Connection.jsx";
 import RegistrationPage from "../Etudiant/Inscription.jsx";
+import Stage from './../Etudiant/Stage.jsx'
+import Consulter from './../Etudiant/Consuler.jsx'
+import Postuler from './../Etudiant/postuler.jsx'
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -65,7 +69,18 @@ const router = createBrowserRouter([
         path:"/admin/gestion-stage",
         element: <StageManagement/>
       },
-    
+      {
+        path:"/Postuler",
+        element: <Postuler/>
+      },
+      {
+        path:"/Stage",
+        element: <Stage/>
+      },
+      {
+        path:"/Consulter",
+        element: <Consulter/>
+      },
     ]
   }
 ]
