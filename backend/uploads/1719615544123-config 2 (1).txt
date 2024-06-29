@@ -1,0 +1,58 @@
+Création du domaine MASTIABD
+
+Switch_A(config)# vtp domain MASTIABD
+Switch_A(config)# vtp mode server
+Switch_A(config)# exit
+
+Création des VLANs
+
+Switch_A(config)# vlan 10
+Switch_A(config)# name ADMINISTRATION
+Switch_A(config)# exit
+Switch_A(config)# vlan 20
+Switch_A(config)# name INFORMATIQUE
+Switch_A(config)# exit
+Switch_A(config)# vlan 30
+Switch_A(config)# name PRODUCTION
+Switch_A(config)# exit
+Switch_A(config)# vlan 40
+Switch_A(config)# name VISITEURS
+Switch_A(config)# exit
+
+Création du trunk sur l’interface connectant le switch A au switch B
+Switch_A(config)# interface fastEthernet 0/x
+Switch_A(config-if)# switchport mode trunk
+Switch_A(config-if)# switchport trunk allowed vlan 10,20,30,40
+Switch_A(config-if)# exit
+
+Création du trunk sur l’interface connectant le switch A au routeur R1
+
+Switch_A(config)# interface fastEthernet 0/x
+Switch_A(config-if)# switchport mode trunk
+Switch_A(config-if)# switchport trunk allowed vlan 10,20,30,40
+Switch_A(config-if)# exit
+
+
+Attribution des VLANs aux ports qui connectent les terminaux
+
+Switch_A(config)# interface fastEthernet 0/x
+Switch_A(config-if)# switchport mode access
+Switch_A(config-if)# switchport access vlan 20
+Switch_A(config-if)# exit
+
+
+Switch_A(config)# interface fastEthernet 0/y
+Switch_A(config-if)# switchport mode access
+Switch_A(config-if)# switchport access vlan 30
+Switch_A(config-if)# exit
+
+Switch_A(config)# interface range fastEthernet 0/a-b
+Switch_A(config-if-range)# switchport mode access
+Switch_A(config-if-range)# switchport access vlan 40
+Switch_A(config-if-range)# exit
+
+Administration du Switch A: Définition de l’adresse IP du Switch dans le VLAN 1
+Switch_A(config)# interface vlan1
+Switch_A(config-if)# ip address 10.10.1.1 255.255.255.0
+
+
