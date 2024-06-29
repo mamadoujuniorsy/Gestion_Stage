@@ -14,7 +14,7 @@ import LoginPage from "../Etudiant/Connection.jsx";
 import RegistrationPage from "../Etudiant/Inscription.jsx";
 import Stage from './../Etudiant/Stage.jsx'
 import Consulter from './../Etudiant/Consuler.jsx'
-import Postuler from './../Etudiant/postuler.jsx'
+import StageDetails from './../Etudiant/postuler.jsx'
 
 const router = createBrowserRouter([
   {
@@ -70,8 +70,8 @@ const router = createBrowserRouter([
         element: <StageManagement/>
       },
       {
-        path:"/Postuler",
-        element: <Postuler/>
+        path:"/Postuler/:id",
+        element: <StageDetails/>
       },
       {
         path:"/Stage",

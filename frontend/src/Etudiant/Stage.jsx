@@ -66,7 +66,7 @@ class App extends React.Component {
               <div className="d-flex">
                 {/* Render stages dynamically */}
                 {this.state.stages.map((stage) => (
-                  <Link to="/Postuler" key={stage._id} className="max-w-sm rounded overflow-hidden shadow-lg h-100 w-100 mr-8 thumbnail" style={{ position: 'relative' }}>
+                  <Link to={`/Postuler/${stage._id}`} key={stage._id} className="max-w-sm rounded overflow-hidden shadow-lg h-100 w-100 mr-8 thumbnail" style={{ position: 'relative' }}>
                     <div className="max-w-sm rounded overflow-hidden shadow-lg h-100 w-100 mr-8 thumbnail" style={{ position: 'relative' }}>
                 <img src={header} style={{ width: 500 }} alt="Thumbnail 1" />
                 <div className="title" style={{ position: 'absolute', top: '10px', left: '10px', color: 'white', padding: '5px' }}>{stage.title}</div>
@@ -74,9 +74,9 @@ class App extends React.Component {
                 <div className="duree" style={{ position: 'absolute', top: '60px', left: '10px', color: 'white', padding: '5px' }}>2 mois</div>
                 <div className="entreprises" style={{ position: 'absolute', top: '60px', right: '10px', color: 'white', padding: '5px' }}>SONATEL</div>
                 <div className="description">
-                  <p><img src={alarm} alt="" />Bac +2 Minimum</p>
+                  <p><img src={alarm} alt="" />Bac +2 Minimum{stage.description}</p>
                   <div className="image">
-                    <div className="image1"><img src={danger} alt="" /> <br /> Date Limite : <br /> {moment(stage.deadline).format('D MMMM YYYY')}</div>
+                    <div className="image1"><img src={danger} alt="" /> <br /> Date Limite : <br /> {moment(stage.datePosted).format('D MMMM YYYY')}</div>
                     <div className="image2"><img src={calendar} alt="" /> <br /> A Partir de : <br /> 15 juillet 2024</div>
                   </div>
                   <p>Stage Rémunéré</p>

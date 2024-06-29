@@ -11,7 +11,7 @@ const StageDetails = () => {
   useEffect(() => {
     const fetchStage = async () => {
       try {
-        const response = await backendAPI.getStageById(stageId); // Assurez-vous que cette méthode existe dans votre API
+        const response = await backendAPI.getStage(stageId); // Assurez-vous que cette méthode existe dans votre API
         setStage(response.data);
       } catch (error) {
         console.error('Erreur lors de la récupération du stage :', error);
@@ -29,13 +29,12 @@ const StageDetails = () => {
     <div className='content'>
       <h2>Détails du Stage</h2>
       <p>Titre: {stage.title}</p>
-      <p>Catégorie: {stage.category}</p>
-      <p>Durée: {stage.duration}</p>
-      <p>Entreprise: {stage.company}</p>
-      <p>Niveau d'études: {stage.educationLevel}</p>
-      <p>Date Limite: {moment(stage.deadline).format('D MMMM YYYY')}</p>
-      <p>Date de début: {moment(stage.startDate).format('D MMMM YYYY')}</p>
-      <p>Type: {stage.type}</p>
+      <p>Catégorie: Inf</p>
+      <p>Durée: 2 mois</p>
+      <p>Entreprise: Sonatel</p>
+      <p>Niveau d'études: Bac + 2 minimun</p>
+      <p>Disponibilité: {moment(stage.datePosted).format('D MMMM YYYY')}</p>
+      
       {/* Ajoutez d'autres détails selon votre modèle de données */}
     </div>
   );
