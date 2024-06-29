@@ -3,6 +3,7 @@ import logo from './images/stageSUP.png';
 import login from './images/banner_login.png';
 import emailIcon from './images/Alternate email.svg';
 import lockIcon from './images/Lock.svg';
+import './css/Connection.css'
 import nameIcon from './images/wpf_name.svg';
 import phoneIcon from './images/bi_phone.svg';
 import personIcon from './images/person_circle_icon_159926.svg';
