@@ -37,7 +37,7 @@ const backendAPI = {
 
   // Fonctions pour les stages
   getStages: () => axiosInstance.get('/api/stages'),
-  getStage: (id) => axiosInstance.get(`/api/stages/${id}`),
+  getStage: (id) => axiosInstance.get(`/api/stage/${id}`),
   createStage: (stageData) => axiosInstance.post('/api/stages', stageData),
   updateStage: (id, stageData) => axiosInstance.put(`/api/stages/${id}`, stageData),
   deleteStage: (id) => axiosInstance.delete(`/api/stages/${id}`),

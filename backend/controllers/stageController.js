@@ -27,7 +27,16 @@ const createStage = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
-
+// Get a stage by ID
+const getStage = async (req, res) => {
+  try {
+    const stage = await Stage.findById(req.params.id);
+    if (!stage) return res.status(404).json({ message: 'Stage not found' });
+    res.json(stage);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 // Update a stage
 const updateStage = async (req, res) => {
   const { title, description, image} = req.body;
@@ -61,4 +70,5 @@ module.exports = {
   createStage,
   updateStage,
   deleteStage,
+  getStage
 };

@@ -5,12 +5,15 @@ const {
   createStage,
   updateStage,
   deleteStage,
+  getStage
 } = require('../controllers/stageController');
 
 // Get all stages
 router.get('/', getAllStages);
+router.get('/Stage', getAllStages);// Create a new stage
+router.get('/Postuler/:id', getAllStages);// Create a new stage
+router.get('/stage/:id',getStage)
 
-// Create a new stage
 router.post('/', createStage);
 
 // Update a stage
