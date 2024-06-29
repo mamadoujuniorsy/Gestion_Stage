@@ -110,7 +110,7 @@ const RegistrationPage = () => {
           </div>
         </div>
         <div className="hidden lg:flex lg:items-center lg:justify-center lg:w-1/2">
-          <img src={login} alt="Login Banner" className="h-auto w-full object-cover" />
+          <img src={login} alt="Login Banner" className="h-auto w-full object-cover animate" />
         </div>
       </div>
   );

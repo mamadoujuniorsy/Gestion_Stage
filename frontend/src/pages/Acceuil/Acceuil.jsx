@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Navbar, Nav, NavDropdown, Col, Container, Row, Form, Button } from "react-bootstrap";
 import '../../assets/acceuil.css';
 import logo from "../../assets/logo.jpg";
-import "../../assets/acceuil.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import imageacceuil from "../../assets/imageacceuil.jpg";
 import imgg1 from "../../assets/imgg1.jpeg";
